@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { counter } from "./reducers";
-import storage from "redux-persist/lib/storage/session";
+import { dates } from "./reducers";
+import storage from "redux-persist/lib/storage";
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, persistStore } from "redux-persist";
 import { baseApi } from "@services/base.endpoint";
 
@@ -12,7 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  counter,
+  dates,
   [baseApi.reducerPath]: baseApi.reducer
 });
 

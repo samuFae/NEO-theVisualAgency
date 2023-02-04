@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "env-cmd -f ./.env.local craco start",
-    "build": "env-cmd -f ./.env.prod craco build"
+    "build": "env-cmd -f ./.env.prod craco build",
+    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -23,6 +24,16 @@
       "last 1 safari version"
     ]
   },
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "namespace": "NEO",
+        "displayName": true,
+        "fileName": true
+      }
+    ]
+  ],
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "env-cmd": "^10.1.0",

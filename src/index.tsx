@@ -3,13 +3,13 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { persistor, store } from "./redux/store";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { PersistGate } from "redux-persist/integration/react";
 import GlobalStyle from "./styles/global";
+import "./styles/fonts/fonts.css"
 
 window.onload = function () {
 
-  const container = document.querySelector(selector)!;
+  const container = document.querySelector("#root")!;
   const root = createRoot(container);
 
   root.render(
