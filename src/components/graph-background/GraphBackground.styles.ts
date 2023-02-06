@@ -1,4 +1,4 @@
-import { borderSize, DidaMedium, mediumGrey, mediumWhite } from "@styles/shared/shared";
+import { borderSize, breakPointSmall, DidaMedium, mediumGrey, mediumWhite } from "@styles/shared/shared";
 import { IGraph } from "redux/reducers/graph";
 import styled from "styled-components/macro";
 
@@ -12,6 +12,11 @@ export const GraphBackgroundWrapper = styled.div<{ graph: IGraph }>`
   grid-template-columns: repeat(${props => props.graph.graphCols + 1}, 1fr) [empty-col] min-content;
   grid-template-rows: repeat(${props => props.graph.graphRows}, 1fr) [empty-row] 1fr;
   white-space: nowrap;
+
+  @media (min-width: ${breakPointSmall}px) {
+    z-index: -2;
+    position: relative;
+  }
 `;
 
 // adds borders based on number of rows and columns and the index of the item parsing

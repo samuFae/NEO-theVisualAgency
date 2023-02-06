@@ -107,6 +107,7 @@ export const OuterRadius = styled.div<{
   ${props => dangerouslyStyle(props.isDangerous)};
   z-index: ${props => (props.visible ? 500 : 3)};
   transition: z-index 300ms linear;
+  backdrop-filter: blur(10px);
   @media (min-width: ${breakPointSmall}px) {
     position: static;
     left: 0;
@@ -122,4 +123,7 @@ export const InnerRadius = styled.div<{ innerSize?: number }>`
       return "70%";
     }
   }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

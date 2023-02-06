@@ -12,6 +12,7 @@ export interface IGraph {
   timeRange: number;
   sizeBreakPoints: number[];
   speedVisual: boolean;
+  tailMiddleSize: number;
 }
 
 const initialState: IGraph = {
@@ -26,7 +27,8 @@ const initialState: IGraph = {
   cellOffset: 0,
   timeRange: 24,
   sizeBreakPoints: [],
-  speedVisual: false
+  speedVisual: false,
+  tailMiddleSize: 0
 };
 
 export interface ICellDimensions {
@@ -61,11 +63,20 @@ export const graphSlice = createSlice({
     },
     toggleSpeedVisual: state => {
       state.speedVisual = !state.speedVisual;
+    },
+    setTailMiddleSize: (state, action: PayloadAction<number>) => {
+      state.tailMiddleSize = action.payload;
     }
   }
 });
 
-export const { setGraphRows, setGraphCols, setCellDimensions, setSizeBreakPoints, toggleSpeedVisual } =
-  graphSlice.actions;
+export const {
+  setGraphRows,
+  setGraphCols,
+  setCellDimensions,
+  setSizeBreakPoints,
+  toggleSpeedVisual,
+  setTailMiddleSize
+} = graphSlice.actions;
 
 export default graphSlice.reducer;

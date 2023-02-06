@@ -111,14 +111,17 @@ export const Circle = styled.div<{
   opacity?: number;
   border?: string;
   position?: string;
+  right?: string;
+  isNotLegend?: boolean;
 }>`
   border: ${props => props.border ?? borderSize} solid ${colorWhite};
   border-radius: ${borderRadiusRound};
-  height: ${props => (100 / numberOfCircleSizes) * props.size}%;
+  height: ${props => (props.isNotLegend ? props.size : (100 / numberOfCircleSizes) * props.size)}%;
   aspect-ratio: 1;
   position: ${props => props.position ?? "absolute"};
   background: ${props => props.background ?? "transparent"};
   opacity: ${props => props.opacity ?? 1};
+  ${props => props.right && `right:${props.right}`}
 `;
 
 export const Circles = styled.div<{ align: string; justify: string }>`

@@ -5,7 +5,8 @@ import {
   setCellDimensions,
   ICellDimensions,
   setSizeBreakPoints,
-  toggleSpeedVisual
+  toggleSpeedVisual,
+  setTailMiddleSize
 } from "../reducers/graph";
 
 export function useGraphStore() {
@@ -19,6 +20,7 @@ export function useGraphStore() {
     setGraphCols: (value: number) => dispatch(setGraphCols(value)),
     setCellDimensions: (value: ICellDimensions) => dispatch(setCellDimensions(value)),
     setSizeBreakPoints: (value: number[]) => dispatch(setSizeBreakPoints(value)),
-    toggleSpeedVisual: () => dispatch(toggleSpeedVisual())
+    toggleSpeedVisual: () => dispatch(toggleSpeedVisual()),
+    setTailMiddleSize: (value: number) => dispatch(setTailMiddleSize(value))
   };
 }

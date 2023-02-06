@@ -2,13 +2,14 @@ import { useGraphStore } from "@store/hooks";
 import { useEffect, useRef, useState } from "react";
 
 export const useResize = () => {
+  const { setTailMiddleSize, setCellDimensions, setSizeBreakPoints, sizeBreakPoints } = useGraphStore();
   const [width, setWidth] = useState<number>(0);
+  const [circleSizes, setCircleSizes] = useState<number>(0);
   const cell = useRef<HTMLDivElement | null>(null);
   const offsetCell = useRef<HTMLDivElement | null>(null);
-  const { setCellDimensions, setSizeBreakPoints, sizeBreakPoints } = useGraphStore();
-  const [circleSizes, setCircleSizes] = useState<number>(0);
   const circleRef = useRef<HTMLDivElement | null>(null);
   const dimensionsRef = useRef<any>([]);
+  const tailRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -48,11 +49,16 @@ export const useResize = () => {
       if (cell.current && offsetCell.current) {
         handleCellDimensions(cell.current.getBoundingClientRect(), offsetCell.current.getBoundingClientRect().width);
       }
+
+      /* set tail size */
+      if (tailRef.current) {
+        setTailMiddleSize(tailRef.current!.clientWidth);
+      }
     };
     window.addEventListener("resize", handleWindowResize);
     handleWindowResize();
     return () => window.removeEventListener("resize", handleWindowResize);
-  }, [setCellDimensions, setSizeBreakPoints, sizeBreakPoints]);
+  }, [setCellDimensions, setSizeBreakPoints, setTailMiddleSize, sizeBreakPoints]);
 
-  return { width, cell, offsetCell, circleRef, circleSizes, dimensionsRef };
+  return { width, cell, offsetCell, circleRef, circleSizes, dimensionsRef, tailRef };
 };

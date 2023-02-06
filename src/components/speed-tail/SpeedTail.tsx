@@ -1,7 +1,7 @@
 import { useDataFactory } from "@hooks/dataFactory";
 import { useGraphStore } from "@store/hooks";
-import { Circle, legendTailColor, numberOfCircleSizes, numberOfTailCirclesL } from "@styles/shared/shared";
-import { FC, useEffect, useState } from "react";
+import { Circle, legendTailColor, numberOfTailCirclesL, speedSizes } from "@styles/shared/shared";
+import { FC, useCallback, useEffect, useState } from "react";
 import { SpeedTailWrapper } from "./SpeedTail.styles";
 
 interface ISpeedTail {
@@ -13,32 +13,52 @@ interface ISpeedTail {
 const SpeedTail: FC<ISpeedTail> = ({ speed, innerSize, outerSize }) => {
   const [speedSize, setSpeedSize] = useState<number>(0);
   const [numberOfCircles, setNumberOfCircles] = useState<number>(0);
+  const [tailSize, setTailSize] = useState<number>(0);
 
   const { maxSpeed } = useDataFactory();
 
-  const { speedVisual } = useGraphStore();
+  const { speedVisual, tailMiddleSize } = useGraphStore();
+
+  const standardTailSize = useCallback(
+    (i: number) => {
+      return 40 + (i + 1) * (70 / numberOfCircles);
+    },
+    [numberOfCircles]
+  );
 
   useEffect(() => {
-    if (speed) {
-      setSpeedSize(Math.round(maxSpeed / speed));
-      setNumberOfCircles(Math.ceil(numberOfTailCirclesL / (numberOfTailCirclesL - speedSize + 1)));
-      console.log(speed, maxSpeed, speedSize, speedVisual);
+    if (speed && innerSize && outerSize) {
+      for (let i = 0; i < speedSizes; i++) {
+        if (speed / maxSpeed < (1 / speedSizes) * (i + 1)) {
+          setSpeedSize(i + 1);
+          break;
+        }
+      }
+      setNumberOfCircles(Math.ceil(numberOfTailCirclesL / (speedSizes - speedSize + 1)) * 2);
+      setTailSize(Math.min(innerSize, outerSize));
+      console.log(tailMiddleSize);
     }
-  }, [maxSpeed, speed, speedVisual]);
+  }, [innerSize, maxSpeed, outerSize, speed, speedSize, speedVisual, tailMiddleSize]);
 
   return (
     <>
-      {speedVisual && speedSize > 0 && (
-        <SpeedTailWrapper>
-          test
+      {speedVisual && speedSize > 0 && outerSize && (
+        <SpeedTailWrapper tailSize={tailSize}>
           {[...Array(numberOfCircles)].map((e, i) => (
             <Circle
               key={i}
-              size={(i + 1) / (numberOfCircles / numberOfCircleSizes)}
+              size={standardTailSize(i)}
               background={legendTailColor}
               border='0'
               opacity={(i + 1) / numberOfCircles}
-              position='relative'
+              position='absolute'
+              right={
+                -tailSize / 2 -
+                outerSize / 2 -
+                ((((i + 1) / numberOfCircles - 1) * tailMiddleSize) / 2) * speedSize +
+                "px"
+              }
+              isNotLegend={true}
             />
           ))}
         </SpeedTailWrapper>

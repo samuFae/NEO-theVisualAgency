@@ -69,10 +69,9 @@ const Asteroid: FC<IAsteroid> = ({ isDangerous, innerSize, outerSize, data, isMo
         visible={isMobile ? true : visible}
         isLegend={isLegend}
       >
-        <InnerRadius innerSize={innerSize}>
-          <SpeedTail speed={data?.speedKmH} outerSize={outerSize} innerSize={innerSize} />
-        </InnerRadius>
+        <InnerRadius innerSize={innerSize}></InnerRadius>
       </OuterRadius>
+      <SpeedTail speed={data?.speedKmH} outerSize={outerSize} innerSize={innerSize} />
     </AsteroidWrapper>
   );
 };
