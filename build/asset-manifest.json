@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.357cefea.css",
-    "main.js": "/static/js/main.717e5f18.js",
+    "main.js": "/static/js/main.5150d0d1.js",
     "static/media/Inter-Medium.ttf": "/static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
     "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.e89cb19905e7db5591b0.ttf",
     "static/media/MuseoModerno-Regular.ttf": "/static/media/MuseoModerno-Regular.8d463ecd49aace12ce6d.ttf",
@@ -14,10 +14,10 @@
     "static/media/MuseoModerno-SemiBold.woff2": "/static/media/MuseoModerno-SemiBold.1385166e1b06a26f9368.woff2",
     "index.html": "/index.html",
     "main.357cefea.css.map": "/static/css/main.357cefea.css.map",
-    "main.717e5f18.js.map": "/static/js/main.717e5f18.js.map"
+    "main.5150d0d1.js.map": "/static/js/main.5150d0d1.js.map"
   },
   "entrypoints": [
     "static/css/main.357cefea.css",
-    "static/js/main.717e5f18.js"
+    "static/js/main.5150d0d1.js"
   ]
 }
