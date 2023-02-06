@@ -6,8 +6,24 @@ import Speed from "@components/speed/Speed";
 import { useResize } from "@hooks/useResize";
 import { backgroundFilter, breakPointSmall, padding, pxToRem } from "@styles/shared/shared";
 import styled from "styled-components/macro";
+import { initializeApp } from "firebase/app";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: "neo-thevisualagency.firebaseapp.com",
+  projectId: "neo-thevisualagency",
+  storageBucket: "neo-thevisualagency.appspot.com",
+  messagingSenderId: "951511247105",
+  appId: "1:951511247105:web:6055aef3e6f7a4a3b91300"
+};
+
+// Initialize Firebase
+
 
 export default function App() {
+  const app = initializeApp(firebaseConfig);
+
   const { width } = useResize();
 
   return (
