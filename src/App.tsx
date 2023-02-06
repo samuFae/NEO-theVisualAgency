@@ -8,13 +8,13 @@ import { backgroundFilter, breakPointSmall, padding, pxToRem } from "@styles/sha
 import styled from "styled-components/macro";
 
 export default function App() {
-
   const { width } = useResize();
 
   return (
     <BGImage>
-      {width > 0 && width < breakPointSmall ?
-        <MobileLayout /> :
+      {width > 0 && width < breakPointSmall ? (
+        <MobileLayout />
+      ) : (
         <Layout>
           <MainContent />
           <Aside>
@@ -23,8 +23,7 @@ export default function App() {
           </Aside>
           <Logo />
         </Layout>
-      }
-
+      )}
     </BGImage>
   );
 }

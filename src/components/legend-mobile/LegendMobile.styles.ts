@@ -1,5 +1,3 @@
 import styled from "styled-components/macro";
 
-export const LegendMobileWrapper = styled.div`
-
-`
+export const LegendMobileWrapper = styled.div``;

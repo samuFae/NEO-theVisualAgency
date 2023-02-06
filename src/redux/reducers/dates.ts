@@ -6,22 +6,21 @@ interface CurrentDate {
 }
 
 let date = new Date();
-let offset = +date.toISOString().split("T")[1].split(":")[0] ;
+let offset = +date.toISOString().split("T")[1].split(":")[0];
 date.setDate(date.getDate() - 1);
-let initialDisplayDate = date.toLocaleString(
-  "us", {
-  day: "numeric",
-  timeZone: 'UTC'
-})
-  + " " +
-  date.toLocaleString(
-    "us", {
+let initialDisplayDate =
+  date.toLocaleString("us", {
+    day: "numeric",
+    timeZone: "UTC"
+  }) +
+  " " +
+  date.toLocaleString("us", {
     month: "long",
     year: "numeric",
-    timeZone: 'UTC'
+    timeZone: "UTC"
   });
 
-let initialApiDate = date.toISOString().split('T')[0];
+let initialApiDate = date.toISOString().split("T")[0];
 
 // Define the initial state using that type
 const initialState: CurrentDate = {
@@ -30,29 +29,27 @@ const initialState: CurrentDate = {
   offsetHours: offset
 };
 
-
 export const datesSlice = createSlice({
   name: "dates",
   initialState,
   reducers: {
-    resetDates: (state) => {
+    resetDates: state => {
       let date = new Date();
       date.setDate(date.getDate() - 1);
-      state.displayDate = date.toLocaleString(
-        "us", {
-        day: "numeric",
-        timeZone: 'UTC'
-      })
-        + " " +
-        date.toLocaleString(
-          "us", {
+      state.displayDate =
+        date.toLocaleString("us", {
+          day: "numeric",
+          timeZone: "UTC"
+        }) +
+        " " +
+        date.toLocaleString("us", {
           month: "long",
           year: "numeric",
-          timeZone: 'UTC'
+          timeZone: "UTC"
         });
 
-      state.apiDate = date.toISOString().split('T')[0];
-    },
+      state.apiDate = date.toISOString().split("T")[0];
+    }
   }
 });
 

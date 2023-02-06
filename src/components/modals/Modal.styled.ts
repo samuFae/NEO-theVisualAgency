@@ -1,5 +1,5 @@
-import { borderRadiusStandard, mediumGrey, padding, colorBlack, colorWhite } from '@styles/shared/shared';
-import styled from 'styled-components';
+import { borderRadiusStandard, mediumGrey, padding, colorBlack, colorWhite } from "@styles/shared/shared";
+import styled from "styled-components";
 
 export const ModalWrapper = styled.div<{ hide?: boolean }>`
   position: fixed;
@@ -11,7 +11,9 @@ export const ModalWrapper = styled.div<{ hide?: boolean }>`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  ${props => props.hide && `
+  ${props =>
+    props.hide &&
+    `
   z-index: -10;
   visibility: hidden;
   opacity: 0;
@@ -54,4 +56,4 @@ export const XIcon = styled.svg`
   fill: ${colorWhite};
   width: 1rem;
   height: 1rem;
-`
+`;

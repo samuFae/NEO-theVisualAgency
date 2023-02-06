@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react';
-import { Subject } from 'rxjs';
+import { ReactNode, useState } from "react";
+import { Subject } from "rxjs";
 export interface IModalOptions {
   title?: string;
 }

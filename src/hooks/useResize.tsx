@@ -1,5 +1,5 @@
-import { useGraphStore } from '@store/hooks';
-import { useEffect, useRef, useState } from 'react';
+import { useGraphStore } from "@store/hooks";
+import { useEffect, useRef, useState } from "react";
 
 export const useResize = () => {
   const [width, setWidth] = useState<number>(0);
@@ -8,10 +8,10 @@ export const useResize = () => {
   const { setCellDimensions, setSizeBreakPoints, sizeBreakPoints } = useGraphStore();
   const [circleSizes, setCircleSizes] = useState<number>(0);
   const circleRef = useRef<HTMLDivElement | null>(null);
-  const dimensionsRef = useRef<any>([])
+  const dimensionsRef = useRef<any>([]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       setWidth(Infinity);
       return;
     }
@@ -21,9 +21,9 @@ export const useResize = () => {
         height: cellRect.height,
         width: cellRect.width,
         offset: offsetCellWidth
-      })
-    }
-    
+      });
+    };
+
     const handleWindowResize = () => {
       /* set window width */
       setWidth(window.innerWidth);
@@ -31,11 +31,12 @@ export const useResize = () => {
       /* set asteroid dimensions scale */
       if (dimensionsRef.current.length > 0) {
         if (dimensionsRef.current[0].getBoundingClientRect().width !== sizeBreakPoints[0]) {
-          setSizeBreakPoints(dimensionsRef.current.map((circle) => {
-            return circle.getBoundingClientRect().width;
-          }))
+          setSizeBreakPoints(
+            dimensionsRef.current.map(circle => {
+              return circle.getBoundingClientRect().width;
+            })
+          );
         }
-
       }
 
       /* set sizes of radius legend circle to align label */
@@ -45,15 +46,12 @@ export const useResize = () => {
 
       /* set the dimensions of the cells in the storage */
       if (cell.current && offsetCell.current) {
-        handleCellDimensions(
-          cell.current.getBoundingClientRect(),
-          offsetCell.current.getBoundingClientRect().width
-        );
+        handleCellDimensions(cell.current.getBoundingClientRect(), offsetCell.current.getBoundingClientRect().width);
       }
-    }
-    window.addEventListener('resize', handleWindowResize);
+    };
+    window.addEventListener("resize", handleWindowResize);
     handleWindowResize();
-    return () => window.removeEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, [setCellDimensions, setSizeBreakPoints, sizeBreakPoints]);
 
   return { width, cell, offsetCell, circleRef, circleSizes, dimensionsRef };

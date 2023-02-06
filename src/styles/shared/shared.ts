@@ -12,7 +12,7 @@ export const mediumWhite = "#F5F5F5";
 
 export const dangerDark = "#911A1A";
 export const dangerLight = "#FFC4C4";
-export const dangerGradient = "radial-gradient(50% 50% at 50% 50%, #FFC4C4 49.14%, rgba(55, 15, 15, 0.11) 100%)"
+export const dangerGradient = "radial-gradient(50% 50% at 50% 50%, #FFC4C4 49.14%, rgba(55, 15, 15, 0.11) 100%)";
 
 export const safeDark = "#3967DE";
 export const safeLight = "#CADCFF";
@@ -55,71 +55,76 @@ export const staticMobileBreakPoints = [25, 47, 70];
 export const padding = (size = basePadding) => size * basePadding + "rem";
 
 export const pxToRem = (pxValue: number) => {
-    const ratio = 16;
-    return pxValue / ratio + 'rem';
+  const ratio = 16;
+  return pxValue / ratio + "rem";
 };
 
+export const fancyFont = "MuseoModerno, serif";
+export const standardFont = "Inter, sans-serif";
 
-export const fancyFont = "MuseoModerno, serif"
-export const standardFont = "Inter, sans-serif"
-
-export const backgroundFilter = "linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 47, 47, 0.8) 100%)"
+export const backgroundFilter = "linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 47, 47, 0.8) 100%)";
 
 export const FlexWrapper = styled.div`
-    display: flex
+  display: flex;
 `;
 
 export const Spacer = styled.div<{ size: number | 1 }>`
-    width: 100%;
-    padding-top: ${(props) => padding(props.size)};
-`
+  width: 100%;
+  padding-top: ${props => padding(props.size)};
+`;
 Spacer.defaultProps = {
-    size: 1
-}
+  size: 1
+};
 
 export const Body = styled.p`
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+`;
 export const Link = styled.a`
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration: underline;
-    font-style: italic;
-`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: underline;
+  font-style: italic;
+`;
 export const DidaMedium = styled.p`
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+`;
 
 export const DidaSmall = styled.p`
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  @media (min-width: ${breakPointXLarge}px) {
     font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    @media (min-width: ${breakPointXLarge}px) {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-    }
-`
+    font-size: 14px;
+    line-height: 17px;
+  }
+`;
 
-export const Circle = styled.div<{ size: number, background?: string, opacity?: number, border?: string, position?: string }>`
-    border: ${props => props.border ?? borderSize} solid ${colorWhite};
-    border-radius: ${borderRadiusRound};
-    height: ${(props) => 100 / numberOfCircleSizes * props.size}%;
-    aspect-ratio: 1;
-    position: ${props => props.position ?? "absolute"};;
-    background: ${props => props.background ?? "transparent"};
-    opacity: ${props => props.opacity ?? 1};
-`
+export const Circle = styled.div<{
+  size: number;
+  background?: string;
+  opacity?: number;
+  border?: string;
+  position?: string;
+}>`
+  border: ${props => props.border ?? borderSize} solid ${colorWhite};
+  border-radius: ${borderRadiusRound};
+  height: ${props => (100 / numberOfCircleSizes) * props.size}%;
+  aspect-ratio: 1;
+  position: ${props => props.position ?? "absolute"};
+  background: ${props => props.background ?? "transparent"};
+  opacity: ${props => props.opacity ?? 1};
+`;
 
-export const Circles = styled.div<{ align: string, justify: string }>`
-    aspect-ratio: 1;
-    position: relative;
-    display: flex;
-    align-items: ${props => props.align};
-    justify-content: ${props => props.justify};
-`
+export const Circles = styled.div<{ align: string; justify: string }>`
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  align-items: ${props => props.align};
+  justify-content: ${props => props.justify};
+`;

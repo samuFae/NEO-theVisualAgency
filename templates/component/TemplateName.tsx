@@ -1,15 +1,10 @@
-import { FC } from 'react';
-import { TemplateNameWrapper } from "./TemplateName.styles"
+import { FC } from "react";
+import { TemplateNameWrapper } from "./TemplateName.styles";
 
-interface ITemplateName { }
+interface ITemplateName {}
 
 const TemplateName: FC<ITemplateName> = () => {
-
-    return (
-        <TemplateNameWrapper>
-            TemplateName
-        </TemplateNameWrapper>
-    )
-}
+  return <TemplateNameWrapper>TemplateName</TemplateNameWrapper>;
+};
 
 export default TemplateName;

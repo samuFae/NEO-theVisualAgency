@@ -1,10 +1,9 @@
-import Graph from "@components/graph/Graph"
-import { Header } from "@components/header/Header"
-import { InformativeLabel, MainContentWrapper } from "./MainContent.styles"
+import Graph from "@components/graph/Graph";
+import { Header } from "@components/header/Header";
+import { InformativeLabel, MainContentWrapper } from "./MainContent.styles";
 
 export const MainContent = () => {
-
-   /* const { setGraphRows, setGraphCols } = useGraphStore();
+  /* const { setGraphRows, setGraphCols } = useGraphStore();
 
          useEffect(() => {
             document.addEventListener("add-rows", (e) => {
@@ -15,17 +14,14 @@ export const MainContent = () => {
             })
         }) */
 
+  return (
+    <MainContentWrapper>
+      <Header />
+      <InformativeLabel>
+        <h4>Time since it passed by</h4>
+      </InformativeLabel>
 
-    return (
-        <MainContentWrapper>
-            <Header />
-            <InformativeLabel>
-                <h4>
-                    Time since it passed by
-                </h4>
-            </InformativeLabel>
-
-            <Graph />
-        </MainContentWrapper>
-    )
-}
+      <Graph />
+    </MainContentWrapper>
+  );
+};

@@ -1,43 +1,43 @@
 @font-face {
-    font-family: 'MuseoModerno';
-    src: url('./MuseoModerno/MuseoModerno-Regular.eot');
-    src: url('./MuseoModerno/MuseoModerno-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./MuseoModerno/MuseoModerno-Regular.woff2') format('woff2'),
-        url('./MuseoModerno/MuseoModerno-Regular.woff') format('woff'),
-        url('./MuseoModerno/MuseoModerno-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
+  font-family: "MuseoModerno";
+  src: url("./MuseoModerno/MuseoModerno-Regular.eot");
+  src: url("./MuseoModerno/MuseoModerno-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./MuseoModerno/MuseoModerno-Regular.woff2") format("woff2"),
+    url("./MuseoModerno/MuseoModerno-Regular.woff") format("woff"),
+    url("./MuseoModerno/MuseoModerno-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'MuseoModerno';
-    src: url('./MuseoModerno/MuseoModerno-SemiBold.eot');
-    src: url('./MuseoModerno/MuseoModerno-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('./MuseoModerno/MuseoModerno-SemiBold.woff2') format('woff2'),
-        url('./MuseoModerno/MuseoModerno-SemiBold.woff') format('woff'),
-        url('./MuseoModerno/MuseoModerno-SemiBold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 600;
+  font-family: "MuseoModerno";
+  src: url("./MuseoModerno/MuseoModerno-SemiBold.eot");
+  src: url("./MuseoModerno/MuseoModerno-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("./MuseoModerno/MuseoModerno-SemiBold.woff2") format("woff2"),
+    url("./MuseoModerno/MuseoModerno-SemiBold.woff") format("woff"),
+    url("./MuseoModerno/MuseoModerno-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('./Inter/Inter-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
+  font-family: "Inter";
+  src: url("./Inter/Inter-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('./Inter/Inter-Medium.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 500;
+  font-family: "Inter";
+  src: url("./Inter/Inter-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
 }
 
 iframe {
-    display: none !important
+  display: none !important;
 }
 
 #webpack-dev-server-client-overlay {
-    display: none;
+  display: none;
 }

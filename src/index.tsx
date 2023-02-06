@@ -5,11 +5,10 @@ import { persistor, store } from "./redux/store";
 import App from "./App";
 import { PersistGate } from "redux-persist/integration/react";
 import GlobalStyle from "./styles/global";
-import "./styles/fonts/fonts.css"
+import "./styles/fonts/fonts.css";
 import { Modal } from "@components/modals/Modal";
 
 window.onload = function () {
-
   const container = document.querySelector("#root")!;
   const root = createRoot(container);
 
@@ -24,4 +23,4 @@ window.onload = function () {
       </Provider>
     </React.StrictMode>
   );
-}
+};
