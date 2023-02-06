@@ -6,7 +6,7 @@ To see the app in a development environment you can navigate to:
 ---------------------------------------------------
 
 Or if you want to get your hands dirty with the code and see what happens when you delete all files you can clone the repository, run 
-# `npm install`
+### `npm install`
 and then run
 ### `npm start`
 to start the development server, the app runs on [http://localhost:3000](http://localhost:3000).
