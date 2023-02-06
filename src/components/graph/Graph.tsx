@@ -1,17 +1,22 @@
-import { useDatesStore } from "@store/hooks"
+import GraphBackground from '@components/graph-background/GraphBackground';
+import GraphElement from '@components/graph-element/GraphElement';
+import { useDataFactory } from '@hooks/dataFactory';
+import { FC } from 'react';
+import { GraphWrapper } from './Graph.styles';
 
-export const Graph = () => {
+interface IGraph { }
 
-    /*     const {
-            data: posts,
-            isLoading,
-            isSuccess,
-            isError,
-            error,
-        } = useGetNasaQuery("2023-02-01"); */
-    const { displayDate, apiDate } = useDatesStore();
+const Graph: FC<IGraph> = () => {
+
+    const { nasaData } = useDataFactory();
+
 
     return (
-        <>{/* {JSON.stringify(posts)} */displayDate + " " + apiDate}</>
+        <GraphWrapper>
+            <GraphBackground />
+            {nasaData?.map((nasaObject) => <GraphElement key={nasaObject.id} data={nasaObject} />)}
+        </GraphWrapper>
     )
 }
+
+export default Graph;

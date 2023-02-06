@@ -1,21 +1,30 @@
 import Legend from "@components/legend/Legend";
 import Logo from "@components/logo/Logo";
 import { MainContent } from "@components/main-content/MainContent";
+import MobileLayout from "@components/mobile-layout/MobileLayout";
 import Speed from "@components/speed/Speed";
-import { backgroundFilter, padding, pxToRem } from "@styles/shared/shared";
-import styled from "styled-components";
+import { useResize } from "@hooks/useResize";
+import { backgroundFilter, breakPointSmall, padding, pxToRem } from "@styles/shared/shared";
+import styled from "styled-components/macro";
 
 export default function App() {
+
+  const { width } = useResize();
+
   return (
     <BGImage>
-      <Layout>
-        <MainContent />
-        <Aside>
-          <Speed />
-          <Legend />
-        </Aside>
-        <Logo />
-      </Layout>
+      {width < breakPointSmall ?
+        <MobileLayout /> :
+        <Layout>
+          <MainContent />
+          <Aside>
+            <Speed />
+            <Legend />
+          </Aside>
+          <Logo />
+        </Layout>
+      }
+
     </BGImage>
   );
 }
@@ -32,11 +41,10 @@ const Layout = styled.div`
 const BGImage = styled.div`
   position: relative;
   background-image: url("galaxy.jpg");
-  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 
   &:before {
     content: "";
@@ -55,5 +63,5 @@ const Aside = styled.aside`
   grid-row: content;
   display: grid;
   grid-template-columns: [content] 1fr [gap] minmax(${padding(1.5)}, 20%);
-  grid-template-rows: [speed] 33% [gap] ${padding(0.5)} [legend] calc(66% - ${padding(1.5)}) [gap] 1rem;
+  grid-template-rows: [speed] 33% [gap] ${padding(0.5)} [legend] calc(67% - ${padding(1.5)}) [gap] 1rem;
 `;

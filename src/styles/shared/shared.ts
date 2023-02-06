@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const colorWhite = "#FFFFFF";
 export const colorBlack = "#000000";
@@ -8,7 +8,7 @@ export const mediumGrey = "#666666";
 export const lightGrey = "#999999";
 
 export const darkWhite = "#EFEFEF";
-export const mediumWhite = "#F5F5F56";
+export const mediumWhite = "#F5F5F5";
 
 export const dangerDark = "#911A1A";
 export const dangerLight = "#FFC4C4";
@@ -20,9 +20,23 @@ export const safeGradient = "radial-gradient(50% 50% at 50% 50%, #7995DF 48.96%,
 
 export const legendTailColor = "#D9D9D9";
 
+export const breakPointXLarge = 1700;
+
+export const breakPointMedium = 1000;
+
+export const breakPointSmall = 768;
+
+export const cardBackground = "rgba(55, 55, 55, 0.4)";
+
 export const basePadding = 1;
 
 export const borderSize = "1px";
+
+export const borderRadiusStandard = "15px";
+
+export const borderRadiusSmall = "10px";
+
+export const borderRadiusRound = "50%";
 
 export const numberOfCircleSizes = 3;
 
@@ -32,6 +46,9 @@ export const numberOfTailCirclesM = 11;
 
 export const numberOfTailCirclesS = 7;
 
+export const graphWidth = "95%";
+
+export const staticMobileBreakPoints = [25, 47, 70];
 
 export const padding = (size = basePadding) => size * basePadding + "rem";
 
@@ -80,11 +97,16 @@ export const DidaSmall = styled.p`
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
+    @media (min-width: ${breakPointXLarge}px) {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+    }
 `
 
 export const Circle = styled.div<{ size: number, background?: string, opacity?: number, border?: string, position?: string }>`
     border: ${props => props.border ?? borderSize} solid ${colorWhite};
-    border-radius: 50%;
+    border-radius: ${borderRadiusRound};
     height: ${(props) => 100 / numberOfCircleSizes * props.size}%;
     aspect-ratio: 1;
     position: ${props => props.position ?? "absolute"};;

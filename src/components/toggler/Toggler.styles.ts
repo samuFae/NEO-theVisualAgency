@@ -1,5 +1,5 @@
-import { colorWhite, darkGrey, mediumGrey, pxToRem } from "@styles/shared/shared";
-import styled from "styled-components";
+import { borderRadiusRound, colorWhite, darkGrey, mediumGrey, pxToRem } from "@styles/shared/shared";
+import styled from "styled-components/macro";
 
 const toggleDimension = 20;
 
@@ -49,8 +49,8 @@ export const Switch = styled.div`
         left: ${pxToRem(2)};
         background-color: ${mediumGrey};
         box-shadow: 0px 0px ${pxToRem(5)} rgba(0, 0, 0, 0.8);
-        border-radius: 50%;
-        transform: translate(0, -52%);
+        border-radius: ${borderRadiusRound};
+        transform: translate(0, -50%);
     }
 `;
 
@@ -65,11 +65,11 @@ export const Tail = styled.div<{ size: SizeEnum; checked: boolean }>`
         top: 50%;
         left: 2px;
         background-color: ${(props) => props.checked ? darkGrey : mediumGrey};
-        border-radius: 50%;
+        border-radius: ${borderRadiusRound};
         opacity: ${(props) => opacitySwitch[props.size]};
         transform: ${(props) => props.checked ?
-        `translate(${pxToRem(34 + toggleDimension - sizeSwitch[props.size])}, -52%)` :
-        `translate(${pxToRem(1)}, -52%)`
+        `translate(${pxToRem(34 + toggleDimension - sizeSwitch[props.size])}, -50%)` :
+        `translate(${pxToRem(1)}, -50%)`
     }
 `;
 
@@ -78,7 +78,7 @@ export const Input = styled.input`
 
     &:checked + ${Switch} {
         &:before {
-            transform: translate(${pxToRem(35)}, -52%);
+            transform: translate(${pxToRem(36)}, -50%);
             background-color: ${darkGrey};
         }
     }

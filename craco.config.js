@@ -9,6 +9,7 @@ module.exports = {
         baseUrl: "./src",
         tsConfigPath: "./tsconfig.paths.json"
       }
-    }
+    },
+
   ]
 };

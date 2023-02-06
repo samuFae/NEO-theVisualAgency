@@ -1,12 +1,11 @@
-import { useViewport } from '@hooks/useViewport';
+import { useResize } from '@hooks/useResize';
 import { FC } from 'react';
 import { LogoContainerAbsolute, LogoContainerRelative, LogoImg, LogoWrapper } from "./Logo.styles"
 
 interface ILogo { }
 
 const Logo: FC<ILogo> = () => {
-    const { width } = useViewport();
-    console.log(width)
+    const { width } = useResize();
 
     return (
         <LogoWrapper>

@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 interface CurrentDate {
   displayDate: string;
   apiDate: string;
+  offsetHours: number;
 }
 
 let date = new Date();
+let offset = +date.toISOString().split("T")[1].split(":")[0] ;
 date.setDate(date.getDate() - 1);
 let initialDisplayDate = date.toLocaleString(
   "us", {
@@ -24,7 +26,8 @@ let initialApiDate = date.toISOString().split('T')[0];
 // Define the initial state using that type
 const initialState: CurrentDate = {
   displayDate: initialDisplayDate,
-  apiDate: initialApiDate
+  apiDate: initialApiDate,
+  offsetHours: offset
 };
 
 

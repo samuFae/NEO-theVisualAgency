@@ -1,11 +1,15 @@
-import { borderSize, colorWhite, numberOfTailCirclesL } from "@styles/shared/shared";
-import styled from "styled-components";
+import { borderSize, breakPointXLarge, colorWhite, numberOfTailCirclesL } from "@styles/shared/shared";
+import styled from "styled-components/macro";
 
 export const LegendSpeedTailWrapper = styled.div`
     flex: 1;
     display: flex;
     width: 100%;
     position: relative;
+
+    @media (min-width: ${breakPointXLarge}px) {
+        padding-top: 2rem;        
+    }
 `
 
 export const TailWrapper = styled.div`

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components/macro";
 import { colorWhite, fancyFont, standardFont } from "./shared/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
     h1{
         font-weight: 600;
         font-size: 48px;
+        Line height: 38.88px;
         text-transform: capitalize;
         font-feature-settings: 'ordn' on, 'rvrn' on, 'salt' on;
     }

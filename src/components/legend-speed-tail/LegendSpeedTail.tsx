@@ -11,6 +11,7 @@ const LegendSpeedTail: FC<ILegendSpeedTail> = () => {
             <TailWrapper>
                 {[...Array(numberOfTailCirclesL)].map((e, i) => (
                     <Circle
+                        key={i}
                         size={(i + 1) / (numberOfTailCirclesL / numberOfCircleSizes)}
                         background={legendTailColor}
                         border="0"
