@@ -21,14 +21,16 @@ At the end if you want a production version of the website locally you can run
 
 In every environment you can always run this lines from the browser console
 
-`const event = new Event("change-graph", {`
-`    detail: {`
-`        rows: 4,`
-`        cols: 7,`
-`        timeRange: 12`
-`    }`
-`});`
-`document.dispatchEvent(event);`
+```javascript
+const event = new Event("change-graph", {
+    detail: {
+        rows: 4,
+        cols: 7,
+        timeRange: 12
+    }
+});
+document.dispatchEvent(event);
+```
 
 to change the number of columns, rows and the time of the grid displaying the asteroids (I wanted to implement a User Interface for it but I really didn't have any more time)
 The value gets cached so you'd have to cleare the cache to return to the default values without doing it manually.
