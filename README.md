@@ -37,4 +37,4 @@ document.dispatchEvent(event);
 
 to change the number of columns, rows and the time of the grid displaying the asteroids (I wanted to implement a User Interface for it but I really didn't have any more time)
 The value gets cached so you'd have to cleare the cache to return to the default values without doing it manually.
-You can really mess up the application since there are no restricted values and then you would definitly need to clean the cache and refresh.
+You can really mess up the application since there are no restricted values and then you would definitly need to clean the cache and refresh. the application also can't retrieve more than 24 hours but it will hide asteroids if they are outside the specified time range.
