@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.357cefea.css",
+    "main.js": "/static/js/main.717e5f18.js",
+    "static/media/Inter-Medium.ttf": "/static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
+    "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.e89cb19905e7db5591b0.ttf",
+    "static/media/MuseoModerno-Regular.ttf": "/static/media/MuseoModerno-Regular.8d463ecd49aace12ce6d.ttf",
+    "static/media/MuseoModerno-SemiBold.ttf": "/static/media/MuseoModerno-SemiBold.337c43a5d856c23a6054.ttf",
+    "static/media/MuseoModerno-Regular.woff": "/static/media/MuseoModerno-Regular.e964696efc9933fc4c6f.woff",
+    "static/media/MuseoModerno-SemiBold.woff": "/static/media/MuseoModerno-SemiBold.05c7c98bf0110bf9dd13.woff",
+    "static/media/MuseoModerno-Regular.eot": "/static/media/MuseoModerno-Regular.187d8832196bc35cddf4.eot",
+    "static/media/MuseoModerno-SemiBold.eot": "/static/media/MuseoModerno-SemiBold.8db2b6899e7ba811544b.eot",
+    "static/media/MuseoModerno-Regular.woff2": "/static/media/MuseoModerno-Regular.faee6ba370ab2ffb24be.woff2",
+    "static/media/MuseoModerno-SemiBold.woff2": "/static/media/MuseoModerno-SemiBold.1385166e1b06a26f9368.woff2",
+    "index.html": "/index.html",
+    "main.357cefea.css.map": "/static/css/main.357cefea.css.map",
+    "main.717e5f18.js.map": "/static/js/main.717e5f18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.357cefea.css",
+    "static/js/main.717e5f18.js"
+  ]
+}
