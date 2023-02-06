@@ -5,27 +5,26 @@ import { useEffect } from "react";
 import { InformativeLabel, MainContentWrapper } from "./MainContent.styles";
 
 export const MainContent = () => {
-  const { setGraphRows, setGraphCols, setTimeRange } = useGraphStore();
+    const { setGraphRows, setGraphCols, setTimeRange } = useGraphStore();
 
-  const changeParams = function (e: CustomEvent) {
-    setGraphRows(e.detail.rows);
-    setGraphCols(e.detail.cols);
-    setTimeRange(e.detail.timeRange);
-  };
+    useEffect(() => {
+        document.addEventListener<any>("change-graph", function changeParams(e: CustomEvent) {
+            console.log("qui")
+            setGraphRows(e.detail.rows);
+            setGraphCols(e.detail.cols);
+            setTimeRange(e.detail.timeRange);
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-  useEffect(() => {
-    document.addEventListener<any>("change-graph", changeParams);
-    return document.removeEventListener<any>("change-graph", changeParams);
-  });
+    return (
+        <MainContentWrapper>
+            <Header />
+            <InformativeLabel>
+                <h4>Time since it passed by</h4>
+            </InformativeLabel>
 
-  return (
-    <MainContentWrapper>
-      <Header />
-      <InformativeLabel>
-        <h4>Time since it passed by</h4>
-      </InformativeLabel>
-
-      <Graph />
-    </MainContentWrapper>
-  );
+            <Graph />
+        </MainContentWrapper>
+    );
 };

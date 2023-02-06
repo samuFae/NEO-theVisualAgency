@@ -22,7 +22,7 @@ At the end if you want a production version of the website locally you can run
 In every environment you can always run this lines from the browser console
 
 ```javascript
-const event = new Event("change-graph", {
+const event = new CustomEvent("change-graph", {
     detail: {
         rows: 4,
         cols: 7,

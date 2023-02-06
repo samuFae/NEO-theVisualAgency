@@ -38,7 +38,7 @@ export const Switch = styled.div`
   border-radius: ${pxToRem(28.5)};
 
   &:before {
-    transition: 800ms all cubic-bezier(0.575, -0.18, 0.42, 1.195);
+    transition: 400ms all cubic-bezier(0.575, -0.18, 0.42, 1.195);
     content: "";
     position: absolute;
     width: ${toggleDimension}px;
@@ -54,7 +54,7 @@ export const Switch = styled.div`
 `;
 
 export const Tail = styled.div<{ size: SizeEnum; checked: boolean }>`
-  transition: 800ms ${props => delaySwitch[props.size] * 2}ms all cubic-bezier(0.575, -0.18, 0.42, 1.195);
+  transition: 400ms ${props => delaySwitch[props.size] * 2}ms all cubic-bezier(0.575, -0.18, 0.42, 1.195);
   content: "";
   position: absolute;
   width: ${props => pxToRem(sizeSwitch[props.size])};
