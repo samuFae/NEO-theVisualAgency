@@ -5,6 +5,7 @@
   "scripts": {
     "start": "env-cmd -f ./.env.local craco start",
     "build": "env-cmd -f ./.env.prod craco build",
+    "build-prod": "env-cmd craco build",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "prettify": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write ./src"
   },
