@@ -21,6 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 
 export default function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const app = initializeApp(firebaseConfig);
 
   const { width } = useResize();
