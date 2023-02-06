@@ -7,7 +7,7 @@ import { SizesDescription, SizeWrapper } from "./LegendDimensionSize.styles"
 interface ILegendDimensionSize { }
 
 const LegendDimensionSize: FC<ILegendDimensionSize> = () => {
-    const { width, dimensionsRef } = useResize();
+    const { dimensionsRef } = useResize();
 
     return (
         <SizeWrapper>

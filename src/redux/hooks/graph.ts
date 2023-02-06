@@ -1,5 +1,5 @@
 import { useAppSelector, useAppDispatch } from "./store";
-import { setGraphRows, setGraphCols, setCellDimensions, ICellDimensions, setSizeBreakPoints } from "../reducers/graph";
+import { setGraphRows, setGraphCols, setCellDimensions, ICellDimensions, setSizeBreakPoints, toggleSpeedVisual } from "../reducers/graph";
 
 export function useGraphStore() {
   const graph = useAppSelector((store) => store.graph);
@@ -11,6 +11,7 @@ export function useGraphStore() {
     setGraphRows: (value: number) => dispatch(setGraphRows(value)),
     setGraphCols: (value: number) => dispatch(setGraphCols(value)),
     setCellDimensions: (value: ICellDimensions) => dispatch(setCellDimensions(value)),
-    setSizeBreakPoints: (value: number[]) => dispatch(setSizeBreakPoints(value))
+    setSizeBreakPoints: (value: number[]) => dispatch(setSizeBreakPoints(value)),
+    toggleSpeedVisual: () => dispatch(toggleSpeedVisual()),
   };
 }

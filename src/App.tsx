@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <BGImage>
-      {width < breakPointSmall ?
+      {width > 0 && width < breakPointSmall ?
         <MobileLayout /> :
         <Layout>
           <MainContent />

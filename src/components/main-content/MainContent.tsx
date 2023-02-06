@@ -1,14 +1,12 @@
 import Graph from "@components/graph/Graph"
 import { Header } from "@components/header/Header"
-import { useGraphStore } from "@store/hooks"
-import { useEffect } from "react"
 import { InformativeLabel, MainContentWrapper } from "./MainContent.styles"
 
 export const MainContent = () => {
 
-    const { setGraphRows, setGraphCols } = useGraphStore();
+   /* const { setGraphRows, setGraphCols } = useGraphStore();
 
-    /*     useEffect(() => {
+         useEffect(() => {
             document.addEventListener("add-rows", (e) => {
                 setGraphRows(+e.detail);
             })

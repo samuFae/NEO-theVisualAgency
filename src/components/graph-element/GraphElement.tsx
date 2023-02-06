@@ -58,7 +58,6 @@ const GraphElement: FC<IGraphElement> = ({ data, isMobile }) => {
     }, [data.diameterM.max, data.diameterM.min])
 
     useEffect(() => {
-        console.log(sizeBreakPoints)
         if (isMobile) {
             calculateDimensions(staticMobileBreakPoints)
         } else {

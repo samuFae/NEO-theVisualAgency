@@ -1,15 +1,19 @@
 import { useGetNasaQuery } from '@services/asteroids.endpoint';
 import { useDatesStore, useGraphStore } from '@store/hooks';
+import { speedSizes } from '@styles/shared/shared';
 import { useCallback, useEffect, useState } from 'react';
 
 export const useDataFactory = () => {
   const { graphRows } = useGraphStore();
   const { apiDate, resetDates } = useDatesStore();
   const { data: nasaData, isLoading } = useGetNasaQuery(apiDate);
+  const [speedVisual, setSpeedVisual] = useState<boolean>(false);
   const [maxDistance, setMaxDistance] = useState<number>(0);
+  const [maxSpeed, setMaxSpeed] = useState<number>(0);
   const [breakPoints, setBreakPoints] = useState<string[]>([]);
+  const [speedBreakPoints, setSpeedBreakPoints] = useState<string[]>([]);
 
-  const getDistances = useCallback(() => {
+  const getDistances = useCallback(function () {
     if (nasaData) {
       const maxDistanceString = Math.trunc(
         Math.max(...nasaData.map((asteroid) => +asteroid.distanceKm))
@@ -31,13 +35,31 @@ export const useDataFactory = () => {
     }
   }, [graphRows, nasaData])
 
+  const getSpeed = useCallback(function () {
+    if (nasaData) {
+      const maxSpeedString = Math.max(...nasaData.map((asteroid) => +asteroid.speedKmH)).toString();
+      let highRoundedNumber = +[+maxSpeedString[0], +maxSpeedString[1], ...Array(maxSpeedString.length - 2).fill(0)].join("");
+      setMaxSpeed(highRoundedNumber);
+
+      let breakPointsArray = Array(speedSizes).fill(0);
+      breakPointsArray = breakPointsArray.map((e, i) => {
+        return highRoundedNumber / (i + 1);
+      })
+      setSpeedBreakPoints([...breakPointsArray]);
+    }
+  }, [nasaData])
+
   useEffect(() => {
     resetDates();
-  }, []);
+  }, [resetDates]);
+
+  useEffect(() => {
+    getSpeed();
+  }, [nasaData, getSpeed]);
 
   useEffect(() => {
     getDistances();
-  }, [nasaData, graphRows]);
+  }, [nasaData, graphRows, getDistances]);
 
-  return { nasaData, isLoading, maxDistance, breakPoints };
+  return { nasaData, isLoading, maxDistance, breakPoints, maxSpeed, speedBreakPoints, speedVisual, setSpeedVisual };
 };

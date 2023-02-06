@@ -46,6 +46,8 @@ export const numberOfTailCirclesM = 11;
 
 export const numberOfTailCirclesS = 7;
 
+export const speedSizes = 3;
+
 export const graphWidth = "95%";
 
 export const staticMobileBreakPoints = [25, 47, 70];

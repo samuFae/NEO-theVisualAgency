@@ -55,7 +55,6 @@ export const Switch = styled.div`
 `;
 
 export const Tail = styled.div<{ size: SizeEnum; checked: boolean }>`
-
         transition: 800ms ${(props) => delaySwitch[props.size] * 2}ms all cubic-bezier(0.575, -0.180, 0.420, 1.195);;
         content: "";
         position: absolute;

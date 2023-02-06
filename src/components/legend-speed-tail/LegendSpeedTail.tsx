@@ -1,3 +1,4 @@
+import { useDataFactory } from '@hooks/dataFactory';
 import { Circle, DidaSmall, legendTailColor, numberOfCircleSizes, numberOfTailCirclesL } from '@styles/shared/shared';
 import { FC } from 'react';
 import { LegendSpeedTailWrapper, SpeedValue, TailWrapper } from "./LegendSpeedTail.styles"
@@ -5,6 +6,8 @@ import { LegendSpeedTailWrapper, SpeedValue, TailWrapper } from "./LegendSpeedTa
 interface ILegendSpeedTail { }
 
 const LegendSpeedTail: FC<ILegendSpeedTail> = () => {
+
+    const { maxSpeed } = useDataFactory();
 
     return (
         <LegendSpeedTailWrapper>
@@ -20,7 +23,7 @@ const LegendSpeedTail: FC<ILegendSpeedTail> = () => {
                     />))}
                 <SpeedValue>
                     <DidaSmall>
-                        xxxxx km/h
+                        {!!maxSpeed && maxSpeed} km/h
                     </DidaSmall>
                 </SpeedValue>
             </TailWrapper>

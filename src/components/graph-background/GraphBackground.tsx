@@ -2,7 +2,7 @@ import { useDataFactory } from '@hooks/dataFactory';
 import { useResize } from '@hooks/useResize';
 import { useDatesStore, useGraphStore } from '@store/hooks';
 import { DidaMedium, DidaSmall } from '@styles/shared/shared';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { GraphBackgroundWrapper, SpaceOccupier } from "./GraphBackground.styles"
 
 interface IGraphBackground { }

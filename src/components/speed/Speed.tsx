@@ -1,14 +1,15 @@
 import Toggler from '@components/toggler/Toggler';
+import { useGraphStore } from '@store/hooks';
 import { Body } from '@styles/shared/shared';
-import { ChangeEvent, FC, useState } from 'react';
+import { FC } from 'react';
 import { SpeedToggleWrapper, SpeedWrapper } from "./Speed.styles"
 
-interface ISpeed { }
+interface ISpeed {
+
+}
 
 const Speed: FC<ISpeed> = () => {
-    const [toggleValue, setToggleValue] = useState<boolean>(false)
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => setToggleValue((prev) => !prev);
+    const { speedVisual, toggleSpeedVisual } = useGraphStore();
 
     return (
         <SpeedWrapper>
@@ -19,7 +20,7 @@ const Speed: FC<ISpeed> = () => {
                 Con il termine lorem ipsum si indica un testo segnaposto utilizzato da grafici, progettisti, programmatori e tipografi a modo riempitivo per bozzetti e prove grafiche.
             </Body>
             <SpeedToggleWrapper>
-                <Toggler onChange={handleChange} checked={toggleValue}>
+                <Toggler onChange={() => toggleSpeedVisual()} checked={speedVisual}>
                     <h3>Activate speed visual</h3>
                 </Toggler>
             </SpeedToggleWrapper>

@@ -2,7 +2,6 @@ import { ModalPortal } from './ModalPortal';
 import React, { useEffect, useState } from 'react';
 import { Background, ModalBody, ModalCloseButton, ModalHeading, ModalWrapper, XIcon } from './Modal.styled';
 import { $modalSubject, IModalState, useModal } from "@hooks/modal.hook";
-import { colorWhite } from '@styles/shared/shared';
 
 export const Modal: React.FC = () => {
   const [modalState, setModalState] = useState<IModalState>();

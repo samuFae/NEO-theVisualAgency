@@ -2,7 +2,7 @@ import { useGraphStore } from '@store/hooks';
 import { useEffect, useRef, useState } from 'react';
 
 export const useResize = () => {
-  const [width, setWidth] = useState<number>(Infinity);
+  const [width, setWidth] = useState<number>(0);
   const cell = useRef<HTMLDivElement | null>(null);
   const offsetCell = useRef<HTMLDivElement | null>(null);
   const { setCellDimensions, setSizeBreakPoints, sizeBreakPoints } = useGraphStore();
@@ -10,16 +10,20 @@ export const useResize = () => {
   const circleRef = useRef<HTMLDivElement | null>(null);
   const dimensionsRef = useRef<any>([])
 
-  const handleCellDimensions = (cellRect: DOMRect, offsetCellWidth) => {
-    setCellDimensions({
-      height: cellRect.height,
-      width: cellRect.width,
-      offset: offsetCellWidth
-    })
-  }
-
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') {
+      setWidth(Infinity);
+      return;
+    }
+
+    const handleCellDimensions = (cellRect: DOMRect, offsetCellWidth) => {
+      setCellDimensions({
+        height: cellRect.height,
+        width: cellRect.width,
+        offset: offsetCellWidth
+      })
+    }
+    
     const handleWindowResize = () => {
       /* set window width */
       setWidth(window.innerWidth);
@@ -50,7 +54,7 @@ export const useResize = () => {
     window.addEventListener('resize', handleWindowResize);
     handleWindowResize();
     return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
+  }, [setCellDimensions, setSizeBreakPoints, sizeBreakPoints]);
 
   return { width, cell, offsetCell, circleRef, circleSizes, dimensionsRef };
 };

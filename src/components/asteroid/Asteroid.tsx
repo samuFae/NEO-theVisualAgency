@@ -1,3 +1,4 @@
+import SpeedTail from '@components/speed-tail/SpeedTail';
 import { AsteroidData } from '@services/asteroids.endpoint';
 import { useDatesStore } from '@store/hooks';
 import { DidaSmall } from '@styles/shared/shared';
@@ -25,7 +26,6 @@ const Asteroid: FC<IAsteroid> = ({ isDangerous, innerSize, outerSize, data, isMo
             let date = new Date(data.lastApproach)
             setDisplayHour(date.toISOString().split("T")[1].split(".")[0]);
         }
-
     }, [data])
 
     const handleHover = () => {
@@ -70,6 +70,7 @@ const Asteroid: FC<IAsteroid> = ({ isDangerous, innerSize, outerSize, data, isMo
             </AsteroidCard>}
             <OuterRadius isDangerous={isDangerous} outerSize={outerSize} visible={isMobile ? true : visible} isLegend={isLegend}>
                 <InnerRadius innerSize={innerSize}>
+                    <SpeedTail speed={data?.speedKmH} outerSize={outerSize} innerSize={innerSize} />
                 </InnerRadius>
             </OuterRadius>
         </AsteroidWrapper >
