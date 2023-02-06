@@ -5,9 +5,12 @@ To see the app in a development environment you can navigate to:
 
 ---------------------------------------------------
 
-Or if you want to get your hands dirty with the code and see what happens when you delete all files you can clone the repository, run 
+Or if you want to get your hands dirty with the code and see what happens when you delete all files you can clone the repository, add a file called .env.local with inside your nasa api (get one free at https://api.nasa.gov/) under the key
+REACT_APP_API_KEY=yourApiKey
+
+then run from the root of the project
 ### `npm install`
-and then run
+and then
 ### `npm start`
 to start the development server, the app runs on [http://localhost:3000](http://localhost:3000).
 
@@ -34,3 +37,4 @@ document.dispatchEvent(event);
 
 to change the number of columns, rows and the time of the grid displaying the asteroids (I wanted to implement a User Interface for it but I really didn't have any more time)
 The value gets cached so you'd have to cleare the cache to return to the default values without doing it manually.
+You can really mess up the application since there are no restricted values and then you would definitly need to clean the cache and refresh.
