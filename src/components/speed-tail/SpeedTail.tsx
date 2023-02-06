@@ -36,7 +36,6 @@ const SpeedTail: FC<ISpeedTail> = ({ speed, innerSize, outerSize }) => {
       }
       setNumberOfCircles(Math.ceil(numberOfTailCirclesL / (speedSizes - speedSize + 1)) * 2);
       setTailSize(Math.min(innerSize, outerSize));
-      console.log(tailMiddleSize);
     }
   }, [innerSize, maxSpeed, outerSize, speed, speedSize, speedVisual, tailMiddleSize]);
 

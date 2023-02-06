@@ -25,7 +25,7 @@ const initialState: IGraph = {
   cellWidth: 0,
   cellHeight: 0,
   cellOffset: 0,
-  timeRange: 24,
+  timeRange: 14,
   sizeBreakPoints: [],
   speedVisual: false,
   tailMiddleSize: 0
@@ -61,6 +61,9 @@ export const graphSlice = createSlice({
     setSizeBreakPoints: (state, action: PayloadAction<number[]>) => {
       state.sizeBreakPoints = [...action.payload];
     },
+    setTimeRange: (state, action: PayloadAction<number>) => {
+      state.timeRange = action.payload;
+    },
     toggleSpeedVisual: state => {
       state.speedVisual = !state.speedVisual;
     },
@@ -76,7 +79,8 @@ export const {
   setCellDimensions,
   setSizeBreakPoints,
   toggleSpeedVisual,
-  setTailMiddleSize
+  setTailMiddleSize,
+  setTimeRange
 } = graphSlice.actions;
 
 export default graphSlice.reducer;
